@@ -50,5 +50,5 @@ Linear Regression Model for Q3.
 
 ![image](https://user-images.githubusercontent.com/72952948/108586757-0b3db400-7316-11eb-85bf-b08d4b5c1720.png)
 
-
+Video Link :https://umkc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c8677e3-b64b-4574-8fb2-acd50071f0d5
 
