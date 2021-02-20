@@ -20,6 +20,7 @@ print("Top 5 correlated features to revenue: ")
 corr = data.corr()
 print(corr['revenue'].sort_values(ascending=False)[:5], '\n')
 
+data.revenue = np.log(data.revenue)
 dataFrame_Y = data.revenue  # Creating the target dataFrame
 dataFrame_X = data[["P2", "P28", "City Group", "P6", "P21"]]
 
