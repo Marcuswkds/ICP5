@@ -28,10 +28,27 @@ Graph with outlier values deleted.
 
 I began by importing the appropriate modules and reading the data.csv file. Next, I converted the categorical data from the csv file into numerical data and I also removed the skewness by applying a logarithm onto the revenue and used test_split to split the data into 2 and used a test size of 0.2. With that, I calculated the R^2 score test data and the RMSE and plotted the scatter graph. 
 
-R^2 score and RMSE.
+R^2 score and RMSE for Q2.
 
 ![image](https://user-images.githubusercontent.com/72952948/108586427-1f80b180-7314-11eb-98e6-411d634d5f95.png)
 
 Linear Regression Model for Q2.
 
 ![image](https://user-images.githubusercontent.com/72952948/108586451-4b9c3280-7314-11eb-8304-7b4d36975fdd.png)
+
+# Question 3 Code.
+
+![image](https://user-images.githubusercontent.com/72952948/108586585-09bfbc00-7315-11eb-8db3-77f7e10ec09a.png)
+
+For question 3, I repeated most of the steps from question 2, but changed to find the top 5 correlated features to revenue and plotted that scatter graph instead. Compared to question 2, the R^2 value is higher but the RMSE is lower, this results in a better prediction and a model that has improved fit.
+
+R^2 score, RMSE and Top 5 correlated features to revenue for Q3
+
+![image](https://user-images.githubusercontent.com/72952948/108586735-efd2a900-7315-11eb-917a-191aa67b0d8e.png)
+
+Linear Regression Model for Q3.
+
+![image](https://user-images.githubusercontent.com/72952948/108586757-0b3db400-7316-11eb-85bf-b08d4b5c1720.png)
+
+
+
