@@ -1,0 +1,32 @@
+# import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
+import numpy as np
+
+train_df = pd.read_csv('train.csv')  # Reading from .csv file.
+
+plot1 = plt.figure(1)
+x = train_df['GarageArea']  # Defining x dataframe.
+y = train_df['SalePrice']  # Defining y dataframe.
+plt.scatter(x, y, alpha=.75, color='b')
+plt.xlabel('Garage Area')
+plt.ylabel('Sale Price')
+plt.title('Garage Area vs Sale Price')
+
+# Calculating z score.
+data_new = pd.concat([train_df['GarageArea'], train_df['SalePrice']], axis=1)
+z_score = np.abs(stats.zscore(data_new))
+threshold = 3  # Setting the threshold for the z score.
+data = data_new[(z_score < 3).all(axis=1)]
+data_anom = data_new[(z_score>= 3).all(axis=1)]
+
+# Plotting scatter graph after deleting outliers.
+plot2 = plt.figure(2)
+x = data['GarageArea']  # Defining x dataframe after deleting outliers.
+y = data['SalePrice']  # Defining y dataframe after deleting outliers.
+plt.scatter(x, y, alpha=.75, color='b')
+plt.xlabel('Garage Area')
+plt.ylabel('Sale Price')
+plt.title('Garage Area vs Sale Price With Outliers Deleted')
+plt.show()  # Show scatter graphs.
