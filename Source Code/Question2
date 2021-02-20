@@ -1,0 +1,36 @@
+# Importing libraries and modules.
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import mean_squared_error
+
+
+data = pd.read_csv('data.csv')  # Reading the .csv file.
+
+# Converting the categorical data from the csv file into numerical data.
+labelEncoder = LabelEncoder()
+data["City Group"] = labelEncoder.fit_transform(data["City Group"])
+data["Type"] = labelEncoder.fit_transform(data["Type"])
+
+data.revenue = np.log(data.revenue)
+dataFrame_Y = data.revenue
+dataFrame_X = data.drop(["revenue"], axis=1)
+
+X_train, X_test, y_train, y_test = train_test_split(dataFrame_X, dataFrame_Y, random_state=2, test_size=.20)  # Splitting the dataset into training and testing.
+
+linearM = LinearRegression()  # Using the Linear Regression Model to the dataset
+linearM.fit(X_train, y_train)
+y_hat = linearM.predict(X_test)
+
+print("R^2 Score: ", linearM.score(X_test, y_test))  # Outputting the R^2 score.
+print("RMSE: ", mean_squared_error(y_test, y_hat))  # Outputting the RMSE score.
+
+# Plotting the scatter plot between the actual and predicted values
+plt.scatter(y_hat, y_test, alpha=.75, color='b')
+plt.xlabel('Predicted Price')
+plt.ylabel('Actual Price')
+plt.title('Linear Regression Model ')
+plt.show()
